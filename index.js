@@ -77,5 +77,5 @@ FSStoreAdapter.prototype.getFileLocation = function(config, filename) {
     return config.mount + '/files/' + config.applicationId + '/' + encodeURIComponent(filename);
 };
 
-exports.FSStoreAdapter = FSStoreAdapter;
 exports.default = FSStoreAdapter;
+module.exports = exports['default'];

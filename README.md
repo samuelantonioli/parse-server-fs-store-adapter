@@ -23,7 +23,7 @@ This saves probably error-prone code here.
 
 As an instance:
 
-    var FSStoreAdapter = require('parse-server-fs-store-adapter').FSStoreAdapter;
+    var FSStoreAdapter = require('parse-server-fs-store-adapter');
     var fs_store_adapter = new FSStoreAdapter({
         // caution: create this directory before you use it
         filesSubDirectory: "other_files_directory" // optional, default: "files"
