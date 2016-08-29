@@ -1,0 +1,23 @@
+{
+    "name": "parse-server-fs-store-adapter",
+    "description": "File system adapter for parse-server",
+    "keywords": [
+        "parse-server",
+        "adapter",
+        "file",
+        "system"
+    ],
+    "readme": "Use your file system for parse-server storage. Based on parse-server-fs-adapter",
+    "version": "0.0.1",
+    "main": "index.js",
+    "dependencies": {},
+    "devDependencies": {},
+    "license": "MIT",
+    "maintainers": [
+        {
+          "name": "Samuel Antonioli",
+          "email": "contact@samuelantonioli.de"
+        }
+    ],
+    "optionalDependencies": {}
+}
