@@ -47,3 +47,9 @@ As a config option:
             }
         }
     });
+
+**Installation**
+
+    npm install --save https://github.com/samuelantonioli/parse-server-fs-store-adapter
+
+
