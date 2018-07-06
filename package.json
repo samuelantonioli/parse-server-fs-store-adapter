@@ -1,12 +1,22 @@
 {
     "name": "parse-server-fs-store-adapter",
     "description": "File system adapter for parse-server",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/samuelantonioli/parse-server-fs-store-adapter.git"
+    },
     "keywords": [
         "parse-server",
         "adapter",
         "file",
         "system"
     ],
+    "author": "Samuel Antonioli <contact@samuelantonioli.de>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/samuelantonioli/parse-server-fs-store-adapter/issues"
+    },
+    "homepage": "https://github.com/samuelantonioli/parse-server-fs-store-adapter",
     "version": "0.0.1",
     "main": "index.js",
     "dependencies": {},
