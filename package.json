@@ -7,7 +7,6 @@
         "file",
         "system"
     ],
-    "readme": "Use your file system for parse-server storage. Based on parse-server-fs-adapter",
     "version": "0.0.1",
     "main": "index.js",
     "dependencies": {},

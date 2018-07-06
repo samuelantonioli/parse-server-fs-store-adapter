@@ -2,24 +2,26 @@
 
 Use your file system for parse-server storage. Based on parse-server-fs-adapter
 
-After parse-server-fs-adapter didn't work for me i.e. getting errors like this:
+## Why?
 
-https://github.com/parse-server-modules/parse-server-fs-adapter/issues/3
+After parse-server-fs-adapter didn't work for me i.e. getting errors like this - [parse-server-fs-adapter#3](https://github.com/parse-server-modules/parse-server-fs-adapter/issues/3) - I've decided to implement a file-based parse-server storage.  
 
-I read the source code of the Grid Store Adapter as an inspiration
-and used the functions of parse-server-fs-adapter.  
+I read the source code of the Grid Store Adapter as an inspiration and used the functions of parse-server-fs-adapter.  
 
 Please read the source, it's short and it works.
 
-- - -
+## Installation
 
-Please create the `files` directory or the specified files directory **before** using it,  
-it doesn't create it automatically. Use e.g. `mkdir -p recursive/path/created/files`.  
+    npm i --save parse-server-fs-store-adapter
+
+## Important note!
+
+Please create the `files` directory or the specified files directory **before** using it, it doesn't create it automatically.  
+
+Use e.g. `mkdir -p recursive/path/created/files`.  
 This saves probably error-prone code here.
 
-- - -
-
-**Usage**
+## Usage
 
 As an instance:
 
@@ -47,9 +49,4 @@ As a config option:
             }
         }
     });
-
-**Installation**
-
-    npm install --save https://github.com/samuelantonioli/parse-server-fs-store-adapter
-
 
