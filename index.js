@@ -8,8 +8,6 @@
  * I read the source code of the Grid Store Adapter as an inspiration
  * and used the functions of parse-server-fs-adapter.
  *
- * TODO: proper filename generation, probably using urlify
- *
  * license: MIT
  *
  **/
@@ -17,6 +15,23 @@
 
 var path = require('path'),
     fs = require('fs');
+
+function sanitize(filename) {
+    // clean filename
+    // sanitize(' \t _124/=)(/&%$..jpg') -> '-_124_.jpg'
+    return encodeURIComponent(
+        filename
+            .toLowerCase()
+            .replace(/\s+/g, '-')
+            // https://stackoverflow.com/a/11653019
+            .replace(/\u00fc/g, 'ue')
+            .replace(/\u00e4/g, 'ae')
+            .replace(/\u00f6/g, 'oe')
+            .replace(/\u00df/g, 'ss')
+            .replace(/\.+/g, '.')
+            .replace(/[^0-9A-Z\._-]+/gi, '_')
+    );
+}
 
 function FSStoreAdapter(options) {
     var files_directory = 'files';
@@ -28,8 +43,9 @@ function FSStoreAdapter(options) {
 }
 
 FSStoreAdapter.prototype.buildpath = function(filename) {
-    return path.join(this._files_directory, encodeURIComponent(filename));
+    return path.join(this._files_directory, sanitize(filename));
 };
+
 FSStoreAdapter.prototype.createFile = function(filename, data, contentType) {
     var self = this;
     return new Promise(function(resolve, reject) {
@@ -42,6 +58,7 @@ FSStoreAdapter.prototype.createFile = function(filename, data, contentType) {
         });
     });
 };
+
 FSStoreAdapter.prototype.deleteFile = function(filename) {
     var self = this;
     return new Promise(function(resolve, reject) {
@@ -61,6 +78,7 @@ FSStoreAdapter.prototype.deleteFile = function(filename) {
         });
     });
 };
+
 FSStoreAdapter.prototype.getFileData = function(filename) {
     var self = this;
     return new Promise(function(resolve, reject) {
@@ -73,8 +91,9 @@ FSStoreAdapter.prototype.getFileData = function(filename) {
         });
     });
 };
+
 FSStoreAdapter.prototype.getFileLocation = function(config, filename) {
-    return config.mount + '/files/' + config.applicationId + '/' + encodeURIComponent(filename);
+    return config.mount + '/files/' + config.applicationId + '/' + sanitize(filename);
 };
 
 exports.default = FSStoreAdapter;
