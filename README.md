@@ -1,3 +1,5 @@
+> :warning: Please use the original https://github.com/parse-community/parse-server-fs-adapter - it has been updated! (2020)
+
 # parse-server-fs-store-adapter
 
 Use your file system for parse-server storage. Based on parse-server-fs-adapter
